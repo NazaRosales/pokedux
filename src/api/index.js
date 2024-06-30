@@ -8,4 +8,16 @@ const getPokemons = async () => {
     return { error };
   }
 };
-export { getPokemons };
+
+const getPokemonsDetails = async (pokemon) => {
+  try {
+    return fetch(pokemon?.url)
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      });
+  } catch (error) {
+    return { error };
+  }
+};
+export { getPokemons, getPokemonsDetails };

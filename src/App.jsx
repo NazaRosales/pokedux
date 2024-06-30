@@ -3,20 +3,19 @@ import { useEffect } from "react";
 import { Searcher } from "./components/Searcher/Searcher";
 import { PokeList } from "./components/PokeList/PokeList";
 import { getPokemons } from "./api";
-import { setPokemons } from "./actions";
 import { useDispatch, useSelector } from "react-redux";
+import { getPokemonsWithDetails } from "./actions";
 function App() {
   const pokemons = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchPokemons = async () => {
-      const res = await getPokemons();
-      dispatch(setPokemons(res));
+      const pokemonList = await getPokemons();
+      dispatch(getPokemonsWithDetails(pokemonList));
     };
     fetchPokemons();
   }, [dispatch]);
-  console.log(pokemons);
-
+console.log("POKES: ", pokemons)
   return (
     <div className="App">
       <Searcher />
