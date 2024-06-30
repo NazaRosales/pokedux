@@ -1,6 +1,6 @@
 import { PokeCard } from "../PokeCard/PokeCard";
 import "./PokeList.css";
-const PokeList = ({ pokemons = Array(10).fill("") }) => {
+const PokeList = ({ pokemons }) => {
   return (
     <div className="pokelist">
       {pokemons.map((pokemon, index) => (

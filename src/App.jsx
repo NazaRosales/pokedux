@@ -11,11 +11,10 @@ function App() {
   useEffect(() => {
     const fetchPokemons = async () => {
       const pokemonList = await getPokemons();
-      dispatch(getPokemonsWithDetails(pokemonList));
+      dispatch(getPokemonsWithDetails(pokemonList))
     };
     fetchPokemons();
   }, [dispatch]);
-console.log("POKES: ", pokemons)
   return (
     <div className="App">
       <Searcher />

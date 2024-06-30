@@ -11,7 +11,12 @@ const PokeCard = ({ name, image, abilities }) => {
   return (
     <Card
       title={name}
-      cover={<img src={image} alt={`Imagen del pokemon: ${name}.`} />}
+      cover={
+        <img
+          src={image}
+          alt={`Imagen del pokemon: ${name}.`}
+        />
+      }
       extra={<StarOutlined />}
     >
       <Meta description={`Abilities: ${formatedAbilities}.`} />
