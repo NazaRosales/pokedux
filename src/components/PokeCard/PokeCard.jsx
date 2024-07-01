@@ -1,8 +1,7 @@
-import { Card } from "antd";
-import Meta from "antd/es/card/Meta";
 import { FavButton } from "../FavButton/FavButton";
 import { useDispatch } from "react-redux";
 import { setFavorite } from "../../actions";
+import "./PokeCard.css";
 const PokeCard = ({ name, image, abilities, id, favorite }) => {
   const dispatch = useDispatch();
   const handleFavorite = () => {
@@ -15,13 +14,12 @@ const PokeCard = ({ name, image, abilities, id, favorite }) => {
     )
     .join(", ");
   return (
-    <Card
-      title={name}
-      cover={<img src={image} alt={`Imagen del pokemon: ${name}.`} />}
-      extra={<FavButton isFavorite={favorite} onClick={handleFavorite} />}
-    >
-      <Meta description={`Abilities: ${formatedAbilities}.`} />
-    </Card>
+    <div className="pokeCard">
+      <FavButton onClick={handleFavorite} isFavorite={favorite} />
+      <h2>{name}</h2>
+      <img src={image} alt={`Imagen del pokemon: ${name}.`} />
+      <p>Abilities: {formatedAbilities}</p>
+    </div>
   );
 };
 

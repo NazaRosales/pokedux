@@ -1,10 +1,11 @@
-import { Input } from "antd";
-import { Col } from "antd";
+import { FaSearch } from "react-icons/fa";
+import "./Searcher.css";
 const Searcher = () => {
   return (
-    <Col span={8} offset={8}>
-      <Input.Search placeholder="Buscar...." style={{marginBottom: 30}}/>
-    </Col>
+    <fieldset className="searchBar">
+      <input type="search" placeholder="Kabutops..."/>
+      <FaSearch className="btnSearch"/>
+    </fieldset>
   );
 };
 export { Searcher };

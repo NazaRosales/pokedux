@@ -1,0 +1,6 @@
+.pokeCard{
+    min-width: 250px;
+}
+.pokeCard img{
+    width: 90px;
+}

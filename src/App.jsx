@@ -5,9 +5,10 @@ import { PokeList } from "./components/PokeList/PokeList";
 import { getPokemons } from "./api";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonsWithDetails, setLoading } from "./actions";
-import { Spin } from "antd";
-import logo from "./static/logo-pokedux.svg"
+import logo from "./static/logo-pokedux.svg";
+import { Loading } from "./components/Loading/Loading";
 function App() {
+  console.log("RENDER");
   const pokemons = useSelector((state) => state.pokemons);
   const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
@@ -24,13 +25,9 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <img src={logo} alt="Pokedux logo" className="pokeduxLogo"/>
+      <img src={logo} alt="Pokedux logo" className="pokeduxLogo" />
       <Searcher />
-      {loading ? (
-        <Spin spinning size="large" />
-      ) : (
-        <PokeList pokemons={pokemons} />
-      )}
+      {loading ? <Loading /> : <PokeList pokemons={pokemons} />}
     </div>
   );
 }
