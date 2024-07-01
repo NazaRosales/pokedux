@@ -4,13 +4,13 @@ import { Searcher } from "./components/Searcher/Searcher";
 import { PokeList } from "./components/PokeList/PokeList";
 import { getPokemons } from "./api";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonsWithDetails, setLoading } from "./actions";
+import { getPokemonsWithDetails, setLoading } from "./store/actions/index";
 import logo from "./static/logo-pokedux.svg";
 import { Loading } from "./components/Loading/Loading";
 function App() {
-  console.log("RENDER");
   const pokemons = useSelector((state) => state.pokemons);
   const loading = useSelector((state) => state.loading);
+  const searchedPokemons = useSelector((state) => state.searchedPokemons);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setLoading(true));
@@ -27,7 +27,11 @@ function App() {
     <div className="App">
       <img src={logo} alt="Pokedux logo" className="pokeduxLogo" />
       <Searcher />
-      {loading ? <Loading /> : <PokeList pokemons={pokemons} />}
+      {loading ? (
+        <Loading />
+      ) : (
+        <PokeList pokemons={searchedPokemons.length? searchedPokemons : pokemons} />
+      )}
     </div>
   );
 }

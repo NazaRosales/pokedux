@@ -1,7 +1,13 @@
-import { SET_FAVORITE, SET_LOADING, SET_POKEMONS } from "../actions/types";
+import {
+  SET_FAVORITE,
+  SET_LOADING,
+  SET_POKEMONS,
+  SET_SEARCHEDS_POKEMONS,
+} from "../actions/types";
 
 const initialState = {
   pokemons: [],
+  searchedPokemons: [],
   loading: true,
 };
 export const pokemonReducer = (state = initialState, action) => {
@@ -19,6 +25,18 @@ export const pokemonReducer = (state = initialState, action) => {
         newPokemons[currentPokemon].favorite =
           !newPokemons[currentPokemon].favorite;
         return { ...state, pokemons: newPokemons };
+      }
+
+    case SET_SEARCHEDS_POKEMONS:
+      if (action.payload.length) {
+        return {
+          ...state,
+          searchedPokemons: [...state.pokemons].filter((poke) =>
+            poke.name.toLowerCase().includes(action.payload.toLowerCase())
+          ),
+        };
+      } else {
+        return { ...state, searchedPokemons: [] };
       }
     case SET_LOADING:
       return {

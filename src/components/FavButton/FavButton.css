@@ -1,4 +1,6 @@
 .favBtn{
+   display: flex;
+   padding: 5px;
    border: none;
    background: none;
    font-size: 18px;

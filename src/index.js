@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { thunk } from "redux-thunk";
 import App from "./App";
-import { pokemonReducer } from "./reducers/pokemons";
+import { pokemonReducer } from "./store/reducers/pokemons";
 import { Provider } from "react-redux";
 import {
   applyMiddleware,

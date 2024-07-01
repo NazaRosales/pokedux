@@ -20,4 +20,5 @@ const getPokemonsDetails = async (pokemon) => {
     return { error };
   }
 };
+
 export { getPokemons, getPokemonsDetails };

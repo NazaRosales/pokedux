@@ -1,6 +1,6 @@
 import { FavButton } from "../FavButton/FavButton";
 import { useDispatch } from "react-redux";
-import { setFavorite } from "../../actions";
+import { setFavorite } from "../../store/actions/index";
 import "./PokeCard.css";
 const PokeCard = ({ name, image, abilities, id, favorite }) => {
   const dispatch = useDispatch();
