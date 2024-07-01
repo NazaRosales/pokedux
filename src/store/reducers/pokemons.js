@@ -1,4 +1,5 @@
 import {
+  GET_FAVORITES,
   SET_FAVORITE,
   SET_LOADING,
   SET_POKEMONS,
@@ -28,22 +29,27 @@ export const pokemonReducer = (state = initialState, action) => {
       }
 
     case SET_SEARCHEDS_POKEMONS:
-      if (action.payload.length) {
-        return {
-          ...state,
-          searchedPokemons: [...state.pokemons].filter((poke) =>
-            poke.name.toLowerCase().includes(action.payload.toLowerCase())
-          ),
-        };
-      } else {
-        return { ...state, searchedPokemons: [] };
-      }
+      const filteredPokemons = action.payload
+        ? state.pokemons.filter((pokemon) =>
+            pokemon.name.toLowerCase().includes(action.payload.toLowerCase())
+          )
+        : [];
+      return { ...state, searchedPokemons: filteredPokemons };
+
     case SET_LOADING:
       return {
         ...state,
         loading: action.payload,
       };
-
+    case GET_FAVORITES:
+      if (!action.payload) {
+        return { ...state, searchedPokemons: [] };
+      }
+      const favsPokemons = state.pokemons.filter((poke) => poke.favorite);
+      return {
+        ...state,
+        searchedPokemons: favsPokemons,
+      };
     default:
       return state;
   }
