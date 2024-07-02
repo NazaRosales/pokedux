@@ -1,4 +1,15 @@
+import gif from "../../static/pikachu-running.gif";
+import "./Loading.css";
+
 const Loading = () => {
-  return <h2>Loading</h2>;
+  return (
+    <div className="loading-container">
+      <div className="loading">
+        <img src={gif} alt="pikachu running gif loading" />
+        <h2 className="loading-text">Loading...</h2>
+      </div>
+    </div>
+  );
 };
+
 export { Loading };

@@ -21,7 +21,7 @@ function App() {
       };
       fetchPokemons();
       dispatch(setLoading(false));
-    }, 1500);
+    }, 2500);
   }, [dispatch]);
   return (
     <div className="App">

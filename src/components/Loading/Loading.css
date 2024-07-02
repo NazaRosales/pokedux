@@ -1,0 +1,33 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  text-align: center;
+}
+
+.loading img {
+  width: 250px;
+  max-width: 80%;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  color: #000;
+  margin-top: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
