@@ -17,7 +17,7 @@ const PokeCard = ({ name, image, abilities, id, favorite }) => {
     <div className="pokeCard">
       <FavButton onClick={handleFavorite} isFavorite={favorite} />
       <h2>{name}</h2>
-      <img src={image} alt={`Imagen del pokemon: ${name}.`} />
+      <img loading="lazy" src={image} alt={`Imagen del pokemon: ${name}.`} />
       <p>Abilities: {formatedAbilities}</p>
     </div>
   );
